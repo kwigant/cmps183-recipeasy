@@ -12,26 +12,30 @@ import datetime
 
 
 def index():
-    result = [] # We will accummulate the result here.
+    result = []  # We will accummulate the result here.
     for r in db(db.post.id > 0).select():
         # This is a loop over all the posts.
 
         # Each post can have replies; you need to read here the list of replies.
         # As each reply has an author and a content, a list of dictionaries seems
         # appropriate here.
-        reply_list=[]
+        reply_list = []
         replies = db(db.reply.post_id == r.id).select(orderby=db.reply.reply_time)
         for reply in replies:
             reply_list.append(dict(
-                reply_id = reply.id,
-                reply_author = reply.reply_author,
-                reply_content = reply.reply_content,
+                reply_id=reply.id,
+                reply_author=reply.reply_author,
+                reply_content=reply.reply_content,
             ))
 
         result.append(dict(
             post_title=r.post_title,
             post_author=r.post_author,
-            post_content=r.post_content,
+            post_dietary_restriction=r.post_dietary_restriction,
+            post_type_of_meal=r.post_type_of_meal,
+            post_cooktime=r.post_cooktime,
+            post_ingredients=r.post_ingredients,
+            post_instruction=r.post_instruction,
             reply_list=reply_list,
             id=r.id,
         ))
@@ -43,23 +47,50 @@ def index():
 @auth.requires_login()
 def add_reply():
     """COMPLETE (and remove line below or replace as appropriate)"""
-    # You will be creating a form, in some way, e.g. using SQLFORM, and you will write
-    # BEFORE processing the form:
-    # form.vars.post_id == int(request.args[0])
-    return redirect(URL('default', 'index'))
+    form = SQLFORM(db.reply)
+    form.vars.post_id = int(request.args[0])
+    if form.process().accepted:
+        redirect(URL('default', 'index'))
+    logger.info("My session is: %r" % session)
+    return dict(form=form)
 
 
 @auth.requires_login()
 @auth.requires_signature()
 def edit_reply():
     """COMPLETE (and remove line below or replace as appropriate)"""
-    return redirect(URL('default', 'index'))
+    db.reply.reply_author.readable = False
+    reply = db.reply(request.args(0))
+    # We must validate everything we receive.
+    if reply is None:
+        logging.info("Invalid edit call")
+        redirect(URL('default', 'index'))
+    # One can edit only one's own posts.
+    if reply.reply_author != auth.user.email:
+        logging.info("Attempt to edit some one else's reply by: %r" % auth.user.email)
+        redirect(URL('default', 'index'))
+    # Now we must generate a form that allows editing the post.
+    form = SQLFORM(db.reply, record=reply)
+    if form.process().accepted:
+        # The deed is done.
+        redirect(URL('default', 'index'))
+    return dict(form=form)
 
 
 @auth.requires_login()
 @auth.requires_signature()
 def delete_reply():
     """COMPLETE (and remove line below or replace as appropriate)"""
+    reply = db.reply(request.args(0))
+    # We must validate everything we receive.
+    if reply is None:
+        logging.info("Invalid edit call")
+        redirect(URL('default', 'index'))
+    # One can edit only one's own posts.
+    if reply.reply_author != auth.user.email:
+        logging.info("Attempt to edit some one else's post by: %r" % auth.user.email)
+        redirect(URL('default', 'index'))
+    db(db.reply.id == reply.id).delete()
     return redirect(URL('default', 'index'))
 
 
@@ -81,7 +112,6 @@ def add():
 @auth.requires_login()
 def edit():
     """Allows editing of a post.  URL form: /default/edit/<n> where n is the post id."""
-
     # For this controller only, we hide the author.
     db.post.post_author.readable = False
 

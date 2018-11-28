@@ -15,38 +15,17 @@ div.main_content div.post {
   margin: 10px;
   padding: 10px;
 }
-div.main_content div.post div.recipe_description div.In{
-	text-align: center;
-}
 div.main_content div.post div.recipe_description{
-	background-color: #EBEBEB;
+	background-color: #D6D6D6;
 	display: flex;
 }
-div.main_content div.post div.recipe_description div.Ingredients div.header{
-	text-align: center;
-}
-div.main_content div.post div.recipe_description div.Indgredients{
-        border-left: 10px;
-	border-style: solid; 
-	border-color:#FFFFFF;
-	text-align: center;
-	display: flex;
-	padding: 10px;
-}
-div.main_content div.post div.recipe_description div.instruction{
-        border-left: 10px;
-	border-style: solid; 
-        border-color: #FFFFFF;
-	text-align: center;
-	padding: 10px;
-}
-div.main_content div.post div.recipe_description div.instruction div.instruction_content{
-	display: flex;
+div.main_content div.post div.recipe_description div.indgredients{
+        background-color: #D6D6D6;
 }
 div.main_content div.post div.recipe_details{
 	display: flex;
 	padding: 10px;
-	background-color:rgba(255, 223, 23, 0.3);
+	background-color:rgba(255, 0, 0, 0.3);
 }
 div.main_content div.post div.recipe_details div.dietary_restriction{
 	margin-right: 10px;
@@ -67,58 +46,38 @@ div.main_content div.post div.recipe_details div.rating{
 	padding: 10px;
 	width: 25%;
 	margin-right: 10px;
-	display: flex;
-}
-div.main_content div.post div.recipe_details div.rating div.head{
-	margin: 5px;
 }
 div.main_content div.post div.recipe_details div.dietary_restriction{
 	background-color: #FFFFFF;
 	padding: 10px;
 	width: 25%;
 	border-left: 10px solid;
-	border-color: #F44336;
+	border-color: #FFDF17;
 }
 div.main_content div.post div.recipe_details div.type_of_meal{
         background-color: #FFFFFF;
         padding: 10px;
         width: 25%;
         border-left: 10px solid;
-        border-color: #F44336;
+        border-color: #FFDF17;
 }
 div.main_content div.post div.recipe_details div.cooktime{
         background-color: #FFFFFF;
         padding: 10px;
         width: 25%;
         border-left: 10px solid;
-        border-color: #F44336;
+        border-color: #FFDF17;
 }
 div.main_content div.post .btn{
 	background-color: #F44336;
 	width: 10%
 }
-div.main_content div.post #reply_button{
-	 background-color: #F44336;
-	 border-color: #FFDF17;
-}
 div.main_content div.reply .btn{
-	background-color: rgba(255, 0, 0, 0.5);
-}
-div.main_content div.reply div.reply_options{
-	margin: 0;
-}
-div.main_content div.reply div.reply_options .i{
-	text-align: center;
+	background-color: #26a69a91;
 }
 div.main_content div.reply{
-	background-color:  #EBEBEB;
+	background-color:  #D6D6D6;
 	margin-left: 50px;
-	border-left: 10px solid;
-	border-color: #F44336;
-	
-}
-div.main_content div.reply div.reply_container{
-	display: flex;
 }
 div.main_content div.reply div.reply_author{
 	padding-left: 10px;
@@ -126,7 +85,10 @@ div.main_content div.reply div.reply_author{
 div.main_content div.reply div.reply_content{
         padding-left: 10px;
 }
-
+div.main_content div.reply div.line{
+	background-color: #26a69a61;
+	height: 5;
+}
 div.main_content div.post div.images{
 	display: flex;
 }
@@ -154,18 +116,4 @@ div.main_content div.post div.images div.test3{
         border-style:  solid;
         background-color: #FFFFFF;
 }
-div.main_content div.post div.break{
-	width: 100%;
-	height: 10px;
-	background-color:#D6D6D6;
-}
-div.main_content div.post div.yellowbreak{
-        width: 100%;
-        height: 5px;
-        background-color:#FFDF17;
-}
-div.main_content div.reply  div.Top_break{
-  	width: 100%;
-        height: 10px;
-        background-color:#FFFFFF;
-}
+
