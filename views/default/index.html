@@ -11,42 +11,77 @@
 
 {{for r in rows:}}
   <div class="post">
-      <div class="author">Author: {{=r['post_author']}}</div>
-      <div class="title">Title: {{=r['post_title']}}</div>
-      <div class="rating"></div>
-      <div class="dietary_restriction">dietary restriction: {{=r['post_dietary_restriction']}}</div>
-      <div class="type_of_meal">Type of meal: {{=r['post_type_of_meal']}}</div>
-      <div class="cooktime">Cook Time: {{=r['post_cooktime']}}</div>
-      <div class="ingredients">ingredients: {{=r['post_ingredients']}}</div>
-      <div class="instruction">Instruction: {{=r['post_instruction']}}</div>
-      <div class="button_row">
+      <div class="author"><strong>Author:</strong> {{=r['post_author']}}</div>
+      <div class="title"><strong>Title:</strong> {{=r['post_title']}}</div>
+      	<div class = "images">
+		<div class="test"></div>
+		<div class="test2"></div>
+		<div  class="test3"></div>
+	</div>
+	<div class="recipe_details">
+		<div class="rating">
+			<div class="head"><strong>Rating:</strong></div>
+			<div class="stars">
+				<i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+			</div>
+		</div>
+        	<div class="dietary_restriction"><strong>Dietary restriction:</strong> {{=r['post_dietary_restriction']}}</div>
+        	<div><br></div>
+		<div class="type_of_meal"><strong>Type of meal:</strong> {{=r['post_type_of_meal']}}</div>
+        	<div><br></div>
+		<div class="cooktime"><strong>Cook Time:</strong> {{=r['post_cooktime']}}</div>
+	</div>
+        <div class = "yellowbreak"><br></div>
+
+	<div class = "break"><br></div>
+
+	<div class = "recipe_description">
+        	<div class="Ingredients">	
+			<div class="header"><h5>Ingredients:</h5></div>
+			<div class="Ingredients_content"> {{=r['post_ingredients']}}</div>
+		</div>
+        	<div class="instruction"><h5>Instruction:</h5> 
+			<div class="instruction_content">{{=r['post_instruction']}}</div>
+		</div>
+      	</div>
+     <div class="button_row">
       {{if auth.user is not None and auth.user.email == r['post_author']:}}
         <a href="{{=URL('default', 'edit', args=[r['id']])}}" class="btn">
           <i class="fa fa-pencil-square-o"></i> Edit
-        </a>
+        </a></div>
       {{pass}}
       {{if auth.user is not None:}}
         <a href="{{=URL('default', 'add_reply', args=[r['id']])}}" class="btn">
-          <i class="fa fa-plus"></i> Reply
+          <div id = "reply_button"><i class="fa fa-plus"></i> Reply</div>
         </a>
       {{pass}}
-    </div>
+   
 
     <!-- Here we display the replies.  If you are the author of a reply, you can edit/delete it. -->
       {{for reply in r['reply_list']:}}
         <div class="reply">
+	 <div class = "Top_break"><br></div>
+        
           <!-- Display here a reply -->
-          <div class="reply_author">Author: {{=reply['reply_author']}}</div>
-          <div class="reply_content">Content: {{=reply['reply_content']}}</div>
+          <div class="reply_author"><strong>Author:</strong> {{=reply['reply_author']}}</div>
+          <div class="reply_content"><strong>Content:</strong> {{=reply['reply_content']}}</div>
           {{if auth.user is not None and auth.user.email == reply['reply_author']:}}
-            <div class="reply options">
+                   <div class= "reply_container">
+
+		 <div class="reply_options">
               <a href="{{=URL('default', 'edit_reply', args=[reply['reply_id']], user_signature=True)}}" class="btn">
-                <i class="fa fa-pencil-square-o"></i> Edit
+                <i id="edit" class="fa fa-pencil-square-o"></i> 
               </a>
               <a href="{{=URL('default', 'delete_reply', args=[reply['reply_id']], user_signature=True)}}" class="btn">
-                <i class="fa fa-trash-o"></i> Delete
+                <i id="trash" class="fa fa-trash-o"></i> 
               </a>
             </div>
+	</div>
+	<div class = "break"><br></div>
           {{pass}}
         </div>
 
