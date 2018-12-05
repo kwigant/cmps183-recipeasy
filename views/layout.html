@@ -23,6 +23,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase.js"></script>
 </head>
 <body class="black">
 {{if response.flash:}}
@@ -60,9 +61,12 @@
         </div>
     </div>
 </footer>
+<script src="{{=URL('static','js/app.js')}}"></script>
 </body>
 <script src="{{=URL('static','js/marked.min.js')}}"></script>
 <script src="{{=URL('static','js/vue.min.js')}}"></script>
+
+
 {{block bottomjs}}{{end}}
 <script>
     jQuery('.social a').each(function () {
@@ -70,4 +74,5 @@
         t.attr('href', t.attr('href').replace('{url}', encodeURIComponent(window.location.href)));
     });
 </script>
+
 </html>
