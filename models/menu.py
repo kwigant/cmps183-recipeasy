@@ -29,7 +29,8 @@ response.google_analytics_id = None
 # ----------------------------------------------------------------------------------------------------------------------
 
 response.menu = [
-    (T('Main Page'), False, URL('default', 'landing'), [])
+    (T('Main Page'), False, URL('default', 'landing'), []),
+    (T('Start Browsing'), False, URL('default', 'index'), [])
 ]
 
 DEVELOPMENT_MENU = True
