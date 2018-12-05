@@ -43,6 +43,7 @@ def index():
     logger.info("Result: %r" % result)
     return dict(rows=result)
 
+
 def landing():
     return dict()
 
@@ -171,5 +172,3 @@ def call():
     supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv
     """
     return service()
-
-
