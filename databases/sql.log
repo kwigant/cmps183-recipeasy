@@ -441,3 +441,23 @@ success!
 success!
 success!
 success!
+timestamp: 2018-12-04T20:15:32.559009
+ALTER TABLE "auth_user" ADD "cooking_skills" CHAR(512);
+timestamp: 2018-12-04T20:15:32.560308
+ALTER TABLE "auth_user" ADD "Which_region_food_is_your_favourite" CHAR(512);
+timestamp: 2018-12-04T20:15:32.572721
+ALTER TABLE "auth_user" ADD "Any_special_dietary_restriction" CHAR(512);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!

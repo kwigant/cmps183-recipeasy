@@ -65,12 +65,12 @@ auth = Auth(db, host_names=myconf.get('host.names'))
 service = Service()
 plugins = PluginManager()
 
-
 auth.settings.extra_fields['auth_user'] = [
     Field('Which_region_food_is_your_favourite', requires=IS_IN_SET(['American', 'European', 'East Asian', 'Chinese',
                                                                      'Korean', 'Japanese'])),
     Field('Any_special_dietary_restriction', requires=IS_IN_SET(['', 'Vegetarian', 'gluten free', 'Vegan', 'Pescetarian'
-                                                                 'Kosher', 'Alcohol free', 'dairy product free'])),
+                                                                                                           'Kosher',
+                                                                 'Alcohol free', 'dairy product free'])),
     Field('cooking_skills', requires=IS_IN_SET(['Newbee', 'Average', 'Pro']))]
 # create all tables needed by auth if not custom tables
 auth.define_tables(username=True, signature=False)
@@ -97,13 +97,12 @@ auth.settings.reset_password_requires_verification = True
 ######################
 # Logging
 import logging, sys
+
 FORMAT = "%(asctime)s %(levelname)s %(process)s %(thread)s %(funcName)s():%(lineno)d %(message)s"
 logging.basicConfig(stream=sys.stderr)
 logger = logging.getLogger(request.application)
 logger.setLevel(logging.INFO)
 
 # Let's log the request.
-logger.info("====> Request: %r %r %r %r" % (request.env.request_method, request.env.path_info, request.args, request.vars))
-
-
-
+logger.info(
+    "====> Request: %r %r %r %r" % (request.env.request_method, request.env.path_info, request.args, request.vars))
