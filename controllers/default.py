@@ -43,6 +43,9 @@ def index():
     logger.info("Result: %r" % result)
     return dict(rows=result)
 
+def landing():
+    return dict()
+
 
 @auth.requires_login()
 def add_reply():

@@ -67,10 +67,11 @@ plugins = PluginManager()
 
 
 auth.settings.extra_fields['auth_user'] = [
-  Field('address'),
-  Field('city'),
-  Field('zip'),
-  Field('phone')]
+    Field('Which_region_food_is_your_favourite', requires=IS_IN_SET(['American', 'European', 'East Asian', 'Chinese',
+                                                                     'Korean', 'Japanese'])),
+    Field('Any_special_dietary_restriction', requires=IS_IN_SET(['', 'Vegetarian', 'gluten free', 'Vegan', 'Pescetarian'
+                                                                 'Kosher', 'Alcohol free', 'dairy product free'])),
+    Field('cooking_skills', requires=IS_IN_SET(['Newbee', 'Average', 'Pro']))]
 # create all tables needed by auth if not custom tables
 auth.define_tables(username=True, signature=False)
 
@@ -103,3 +104,6 @@ logger.setLevel(logging.INFO)
 
 # Let's log the request.
 logger.info("====> Request: %r %r %r %r" % (request.env.request_method, request.env.path_info, request.args, request.vars))
+
+
+

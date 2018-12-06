@@ -1,6 +1,10 @@
 {{extend 'layout.html'}}
 
 {{block head}}
+<script>
+	var set_stars_url = "{{=URL('api', 'set_stars', user_signature=True)}}";
+        var is_logged_in = {{='false' if auth.user is None else 'true'}};
+</script>
 {{end}}
 
 <div class="main_content">
@@ -11,7 +15,7 @@
 
 {{for r in rows:}}
   <div class="post">
-      <div class="author"><strong>Author:</strong> {{=r['post_author']}}</div>
+	<div class="author"><strong>Author:</strong> {{=r['post_author']}}</div>
       <div class="title"><strong>Title:</strong> {{=r['post_title']}}</div>
       	<div class = "images">
 		<div class="test"></div>
@@ -22,11 +26,15 @@
 		<div class="rating">
 			<div class="head"><strong>Rating:</strong></div>
 			<div class="stars">
-				<i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
+				<!-- Code for start ratings. -->
+            			<div v-if="is_logged_in" class="star_rating">
+              				<span v-on:mouseout="stars_out(post._idx)">
+                				<span v-on:mouseover="stars_over(post._idx, idx)" v-on:click="set_stars(post._idx, idx)" v-for="idx in star_indices">
+                    					<i v-if="idx <= post._num_stars_display" class="fa fa-star"></i>
+                    					<i v-if="idx > post._num_stars_display" class="fa fa-star-o"></i>
+                				</span>
+              				</span>
+            			</div>
 			</div>
 		</div>
         	<div class="dietary_restriction"><strong>Dietary restriction:</strong> {{=r['post_dietary_restriction']}}</div>

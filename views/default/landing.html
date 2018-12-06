@@ -1,0 +1,60 @@
+{{extend 'layout.html'}}
+
+{{block head}}
+{{end}}
+
+<div class="main_content">
+  <div id="jumbotron">
+  	<h1>Recipeasy</h1>
+  	<h4>A social network for recipe sharing made easy!</h4>
+        <div id="line"><br></div>
+	<div id ="br"><br></div>
+	<a href="index.html"><button>Start Browsing</button></a>
+  </div>
+  <div id="Carousel_Container">
+  	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+    	<!-- Wrapper for slides -->
+    		<div class="carousel-inner">
+      			<div class="item active">
+        			<img src="{{=URL('static','images/4562522.jpg')}}" alt="Los Angeles" style="width: 100%;">
+      			</div>
+
+      			<div class="item">
+        			<img src="{{=URL('static','images/5302785.jpg')}}" alt="Chicago" style="width: 100%;">
+      			</div>
+    
+      			<div class="item">
+        			<img src="{{=URL('static','images/5421623.jpg')}}" alt="New york" style="width: 100%;">
+      			</div>
+    		</div>
+    	<div id ="carousel-indicators">
+    	
+		<!-- Indicators -->
+    		<ol class="carousel-indicators">
+      			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      			<li data-target="#myCarousel" data-slide-to="1"></li>
+      			<li data-target="#myCarousel" data-slide-to="2"></li>
+    		</ol>
+   	</div>
+   	<div id = "arrows">
+		<div id = "left_arrow">
+    		<!-- Left and right controls -->
+    			<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      			<span class="glyphicon glyphicon-chevron-left"></span>
+      			<span class="sr-only">Previous</span>
+    			</a>
+		</div>
+    		<div id="right_arrow">
+    			<a class="right carousel-control" href="#myCarousel" data-slide="next">
+      			<span class="glyphicon glyphicon-chevron-right"></span>
+      			<span class="sr-only">Next</span>
+    			</a>
+		</div>
+ 	 </div>
+  </div>
+</body>
+</html>
+</div>
+
+
