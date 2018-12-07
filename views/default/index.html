@@ -21,11 +21,12 @@
 
         </pre>
         <ul id="list">
-
+            $("#image").attr("src", obj[0].ImageFileName);
         </ul>
+
         <div class="images">
-            <div class="test"></div>
-            <div class="test2"></div>
+            <div id="test1"></div>
+            <div id="test2"></div>
             <div class="test3"></div>
         </div>
         <div class="recipe_details">
@@ -72,7 +73,7 @@
     {{pass}}
 
 
-        <!-- Here we display the replies.  If you are the author of a reply, you can edit/delete it. -->
+
     {{for reply in r['reply_list']:}}
         <div class="reply">
             <div class="Top_break"><br></div>

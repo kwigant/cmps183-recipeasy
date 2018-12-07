@@ -15,10 +15,12 @@
     // Get elements
     const preObject = document.getElementById('object');
     const ulList = document.getElementById('list');
+    const img_object = document.getElementById('images');
 
     // Create references
     const dbRefObject = firebase.database().ref().child('object');
     const dbRefList = dbRefObject.child('recipes');
+    const dbRefImage = dbRefList.child('img_url_0');
 
     // Sync object changes
     dbRefObject.on('value', snap => {
@@ -26,10 +28,23 @@
         preObject.innerText = JSON.stringify(snap.val(), null, 3);
     });
 
+    dbRefImage.on('value', snap => {
+        console.log("URL ===> " + snap.val());
+        // img_object.innerText = snap.val();
+        var img_url = snap.val();
+        var result = document.getElementById("test2");
+        var img_0 = document.createElement('img');
+        img_0.src = snap.val();
+        img_0.setAttribute('width', '33%');
+        img_0.setAttribute('height', '300');
+        img_0.alt = 'food';
+        result.appendChild(img_0);
+
+    });
+
 
     // Sync List changes
     dbRefList.on('child_added', snap => {
-
         const li = document.createElement('li');
         li.innerText = snap.val();
         li.id = snap.key;
@@ -46,7 +61,15 @@
         const liToRemove = document.getElementById(snap.key);
         liToRemove.remove();
     });
+
+
 }());
+
+
+function myFunction() {
+
+    document.getElementById("u11").innerHTML = '<img id="u23_img" class="img " src="images/image2_u23.png">';
+}
 
 
 //// Firebase stuff
