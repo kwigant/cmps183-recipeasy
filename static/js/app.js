@@ -39,7 +39,6 @@
         img_0.setAttribute('height', '300');
         img_0.alt = 'food';
         result.appendChild(img_0);
-
     });
 
 
