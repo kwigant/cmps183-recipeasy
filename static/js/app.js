@@ -24,21 +24,24 @@
 
     // Sync object changes
     dbRefObject.on('value', snap => {
-        console.log(snap.val());
+        // console.log(snap.val());
         preObject.innerText = JSON.stringify(snap.val(), null, 3);
     });
 
     dbRefImage.on('value', snap => {
-        console.log("URL ===> " + snap.val());
+        // console.log("URL ===> " + snap.val());
         // img_object.innerText = snap.val();
         var img_url = snap.val();
         var result = document.getElementById("test2");
-        var img_0 = document.createElement('img');
-        img_0.src = snap.val();
-        img_0.setAttribute('width', '33%');
-        img_0.setAttribute('height', '300');
-        img_0.alt = 'food';
-        result.appendChild(img_0);
+        // var img_0 = document.createElement('img');
+        // img_0.src = snap.val();
+        // img_0.setAttribute('width', '33%');
+        // img_0.setAttribute('height', '300');
+        // img_0.alt = 'food';
+        // result.appendChild(img_0);
+
+        // var category = document.getElementById('dietary_restriction').value;
+        // console.log("HERE ====>" + category);
     });
 
 
@@ -72,3 +75,4 @@ function myFunction() {
 
 
 //// Firebase stuff
+

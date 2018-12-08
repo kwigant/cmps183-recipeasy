@@ -17,13 +17,39 @@
         <div class="author"><strong>Author:</strong> {{=r['post_author']}}</div>
         <div class="title"><strong>Title:</strong> {{=r['post_title']}}</div>
 
-        <pre id="object">
-
-        </pre>
 
         <div class="images">
-            <div id="test1"></div>
-            <p>{{=r['post_dietary_restriction']}}</p>
+            <div class="test1">
+            {{if r['post_dietary_restriction'] == "Vegetarian":}}
+                <img src="{{=URL('static','images/Vegetarian.jpg')}}" alt="Vegetarian">
+
+            {{pass}}
+            {{if r['post_dietary_restriction'] == "Vegan":}}
+                <img src="{{=URL('static','images/Vegan.jpg')}}" alt="Vegan">
+
+            {{pass}}
+            {{if r['post_dietary_restriction'] == "Gluten free":}}
+                <img src="{{=URL('static','images/Gluten_20Free.jpg')}}" alt="Gluten free">
+
+            {{pass}}
+            {{if r['post_dietary_restriction'] == "Pescetarian":}}
+                <img src="{{=URL('static','images/pescetarianDiet.jpg')}}" alt="Pescetarian">
+
+            {{pass}}
+            {{if r['post_dietary_restriction'] == "Kosher":}}
+                <img src="{{=URL('static','images/Kosher.jpg')}}" alt="Kosher">
+
+            {{pass}}
+            {{if r['post_dietary_restriction'] == "Alcohol free":}}
+                <img src="{{=URL('static','images/alcohol_free.jpg')}}" alt="Alcohol free">
+
+            {{pass}}
+            {{if r['post_dietary_restriction'] == "dairy product free":}}
+                <img src="{{=URL('static','images/dairy-free.jpg')}}" alt="dairy product free">
+
+            {{pass}}
+            </div>
+
             <div id="test2"></div>
             <div class="test3"></div>
         </div>
@@ -38,8 +64,11 @@
                     <i class="fa fa-star-o"></i>
                 </div>
             </div>
-            <div class="dietary_restriction"><strong>Dietary restriction:</strong> {{=r['post_dietary_restriction']}}
+            <div class="dietary_restriction"><strong>Dietary restriction:</strong>
+                <p id="dietary_restriction">{{=r['post_dietary_restriction']}}</p>
             </div>
+
+
             <div><br></div>
             <div class="type_of_meal"><strong>Type of meal:</strong> {{=r['post_type_of_meal']}}</div>
             <div><br></div>
@@ -102,4 +131,3 @@
 {{pass}}
 
 </div>
-
