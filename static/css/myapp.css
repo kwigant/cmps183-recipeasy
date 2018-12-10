@@ -1,0 +1,253 @@
+/* line 1, ../sass/_main.scss */
+div.main_content {
+    
+}
+#pic1{
+   width: 100%;
+   position: relative;
+}
+#pic2{
+   width: 100%;
+}
+#pic3{
+   width: 100%;
+}
+#main_content{
+   margin:0;
+}
+#startBrowsing .btn{
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
+#container{
+ width: 100%;
+ padding: 0;
+ margin: 0;
+ height: 100%;
+
+}
+.carousel-inner{
+  width: 100%;
+  position: relative;
+  height: 100%;
+}
+#jumbotron{
+  position: absolute;
+  top: 250px;
+  width: 100%;
+  height: 300px;
+  z-index: 2;
+  text-align: center; 
+  background:rgba(255,255,255, 0.5);
+  font-family: helvetica;
+}
+#main_content #jumbotron .h1{
+  font-size: 75px;
+  margin-top:50 px; 
+}
+.h4{
+ font-size: 25px;
+}
+.img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+div.main_content .blue.padded {
+    background-color: #FFFFFF;
+}
+
+/* line 4, ../sass/_main.scss */
+div.main_content div.post {
+    border: 2px, solid black;
+    background-color: #FFFFFF;
+    margin: 10px;
+    padding: 10px;
+}
+
+div.main_content div.post div.recipe_description div.In {
+    text-align: center;
+}
+
+div.main_content div.post div.recipe_description {
+    background-color: #EBEBEB;
+    display: flex;
+}
+
+div.main_content div.post div.recipe_description div.Ingredients div.header {
+    text-align: center;
+}
+
+div.main_content div.post div.recipe_description div.Indgredients {
+    border-left: 10px;
+    border-style: solid;
+    border-color: #FFFFFF;
+    text-align: center;
+    display: flex;
+    padding: 10px;
+}
+
+div.main_content div.post div.recipe_description div.instruction {
+    border-left: 10px;
+    border-style: solid;
+    border-color: #FFFFFF;
+    text-align: center;
+    padding: 10px;
+}
+
+div.main_content div.post div.recipe_description div.instruction div.instruction_content {
+    display: flex;
+}
+
+div.main_content div.post div.recipe_details {
+    display: flex;
+    padding: 10px;
+    background-color: rgba(255, 223, 23, 0.3);
+}
+
+div.main_content div.post div.recipe_details div.dietary_restriction {
+    margin-right: 10px;
+}
+
+div.main_content div.post div.recipe_details div.type_of_meal {
+    margin-right: 10px;
+}
+
+div.main_content div.post div.recipe_details div.cooktime {
+    margin-right: 10px;
+}
+
+/* line 9, ../sass/_main.scss */
+div.main_content div.post div.thumb_div {
+    margin: 5px;
+}
+
+div.main_content div.post div.recipe_details div.rating {
+    color: #FFFFFF;
+    background-color: #F44336;
+    padding: 10px;
+    width: 25%;
+    margin-right: 10px;
+    display: flex;
+}
+
+div.main_content div.post div.recipe_details div.rating div.head {
+    margin: 5px;
+}
+
+div.main_content div.post div.recipe_details div.dietary_restriction {
+    background-color: #FFFFFF;
+    padding: 10px;
+    width: 25%;
+    border-left: 10px solid;
+    border-color: #F44336;
+}
+
+div.main_content div.post div.recipe_details div.type_of_meal {
+    background-color: #FFFFFF;
+    padding: 10px;
+    width: 25%;
+    border-left: 10px solid;
+    border-color: #F44336;
+}
+
+div.main_content div.post div.recipe_details div.cooktime {
+    background-color: #FFFFFF;
+    padding: 10px;
+    width: 25%;
+    border-left: 10px solid;
+    border-color: #F44336;
+}
+
+div.main_content div.post .btn {
+    background-color: #F44336;
+    width: 10%
+}
+
+div.main_content div.post #reply_button {
+    background-color: #F44336;
+    border-color: #FFDF17;
+}
+
+div.main_content div.reply .btn {
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
+div.main_content div.reply div.reply_options {
+    margin: 0;
+}
+
+div.main_content div.reply div.reply_options .i {
+    text-align: center;
+}
+
+div.main_content div.reply {
+    background-color: #EBEBEB;
+    margin-left: 50px;
+    border-left: 10px solid;
+    border-color: #F44336;
+
+}
+
+div.main_content div.reply div.reply_container {
+    display: flex;
+}
+
+div.main_content div.reply div.reply_author {
+    padding-left: 10px;
+}
+
+div.main_content div.reply div.reply_content {
+    padding-left: 10px;
+}
+
+div.main_content div.post div.images {
+    display: flex;
+    width: 100%;
+}
+#AddPost .btn{
+     background-color: rgba(255, 0, 0, 0.5);
+     width: 30%;
+     margin-top: 20px;
+     margin-left: 35%;
+}
+
+div.main_content div.post div.images div.test {
+    width: 50%;
+    height: 300;
+    margin: 5px;
+    background-color: #FFFFFF;
+}
+
+div.main_content div.post div.images div.test2 {
+    width: 50%;
+    margin: 5px;
+    height: 300;
+    background-color: #FFFFFF;
+}
+
+div.main_content div.post div.images div.test3 {
+    width: 33%;
+    margin: 5px;
+    height: 300;
+    background-color: #FFFFFF;
+}
+
+div.main_content div.post div.break {
+    width: 100%;
+    height: 10px;
+    background-color: #D6D6D6;
+}
+
+div.main_content div.post div.yellowbreak {
+    width: 100%;
+    height: 5px;
+    background-color: #FFDF17;
+}
+
+div.main_content div.reply div.Top_break {
+    width: 100%;
+    height: 10px;
+    background-color: #FFFFFF;
+}
