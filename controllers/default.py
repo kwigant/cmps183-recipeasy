@@ -31,6 +31,7 @@ def index():
         result.append(dict(
             post_title=r.post_title,
             post_author=r.post_author,
+            post_difficulty=r.post_difficulty,
             post_dietary_restriction=r.post_dietary_restriction,
             post_type_of_meal=r.post_type_of_meal,
             post_cooktime=r.post_cooktime,

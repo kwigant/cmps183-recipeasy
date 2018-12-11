@@ -28,7 +28,20 @@ var app = function () {
         );
         console.log("I fired the get");
     };
-    
+    self.count_reply = function(){
+	$.getJSON(get_reply_count, 
+            function(data) {
+                // I am assuming here that the server gives me a nice list
+                // of posts, all ready for display.
+                self.vue. = data.post_list;
+                // Post-processing.
+                self.process_posts();
+                console.log("I got my list");
+            }
+        );
+        console.log("I fired the get");
+	
+    }
     self.process_posts = function() {
         // This function is used to post-process posts, after the list has been modified
         // or after we have gotten new posts. 
@@ -80,7 +93,8 @@ var app = function () {
             // Star ratings.
             stars_out: self.stars_out,
             stars_over: self.stars_over,
-            set_stars: self.set_stars
+            set_stars: self.set_stars, 
+ 	    count_reply: self.count_reply,
 	}
 
     });
